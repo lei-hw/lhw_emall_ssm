@@ -2,6 +2,7 @@ package com.controller;
 
 import com.entity.Users;
 import com.service.USerService;
+import com.util.SafeUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,4 +75,26 @@ public class UserController {
             //return "redirect:index";
             return "/index/index.jsp";
         }
+
+    /**
+     * 收货地址
+      */
+    @GetMapping("/password")
+    public String password(){return "/index/password.jsp";}
+
+    /**
+     * 修改密码
+      */
+    @PostMapping("/passwordUpdate")
+    public String passwprdUpdate(String password, String passwordNew,HttpServletRequest request,HttpSession session){
+        Users user = (Users) session.getAttribute("user");
+        user = userService.get(user.getId());
+        if (!user.getPassword().equals(SafeUtil.encode(password))){
+            request.setAttribute("msg","原密码错误");
+        }else {
+            userService.updatePassword(user.getId(),passwordNew);
+            request.setAttribute("msg","密码修改成功");
+        }
+        return "/index/password.jsp";
+    }
 }

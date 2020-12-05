@@ -27,6 +27,11 @@ public class USerService {
         return usersDao.insert(user);
     }
 
+    /**
+     * 通过id获取
+     * @param id
+     * @return
+     */
     public Users get(int id) {return  usersDao.select(id);}
 
     /**
@@ -41,5 +46,15 @@ public class USerService {
      */
     public Users getByUsernameAndPassword(String username, String password){
         return usersDao.selectByUsernameAndPassword(username, SafeUtil.encode(password));
+    }
+
+    /**
+     * 更新
+     * @param id
+     * @param password
+     * @return
+     */
+    public boolean updatePassword(int id, String password){
+        return usersDao.updatePassword(id,SafeUtil.encode(password));
     }
 }

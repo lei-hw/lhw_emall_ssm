@@ -30,6 +30,12 @@ public interface UsersDao {
     @SelectKey(keyProperty ="id",statement ="SELECT LAST_INSERT_ID()", before = false, resultType = Integer.class)
     public boolean insert(Users user);
 
+    @Update("update users set name=#{name},phone=#{phone},address=#{address} where id=#{id}")
+    public boolean update(Users users);
+
     @Update("update users set password=#{password} where id=#{id}")
     public boolean updatePassword(@Param("id")int id,@Param("password")String password);
+
+    @Update("delete from users where id=#{id}")
+    public boolean delete(int id);
 }
