@@ -79,6 +79,11 @@ public class UserController {
     /**
      * 收货地址
       */
+
+
+    /**
+     * 修改密码
+     */
     @GetMapping("/password")
     public String password(){return "/index/password.jsp";}
 

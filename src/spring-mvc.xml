@@ -20,17 +20,17 @@
 	<!-- 处理静态资源 -->	
 	<mvc:default-servlet-handler />
 
-	<!-- 配置拦截器 -->
-<!--	<mvc:interceptors>-->
+<!--	 配置拦截器-->
+	<mvc:interceptors>
 <!--		<mvc:interceptor>&lt;!&ndash; 配置后台拦截器 &ndash;&gt;-->
 <!--			<mvc:mapping path="/admin/**"/>-->
 <!--			<bean class="com.config.AdminInterceptor"/>-->
 <!--		</mvc:interceptor>-->
-<!--		<mvc:interceptor>&lt;!&ndash; 配置前台拦截器 &ndash;&gt;-->
-<!--			<mvc:mapping path="/index/**"/>-->
-<!--			<bean class="com.config.IndexInterceptor"/>-->
-<!--		</mvc:interceptor>-->
-<!--	</mvc:interceptors>-->
+		<mvc:interceptor><!-- 配置前台拦截器 -->
+			<mvc:mapping path="/index/**"/>
+			<bean class="com.config.IndexInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	
 	
 	<!-- 配置多媒体文件解析器 用于文件上传 -->
