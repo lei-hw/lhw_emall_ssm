@@ -42,7 +42,7 @@ public class IndexInterceptor extends HandlerInterceptorAdapter {
         throws Exception{
         //拦截指定路径
         String uri = request.getRequestURI();
-        if (uri.contains("index/cart")){//购物车相关请求后 更新session
+        if (uri.contains("index/cart") || uri.contains("index/cartAdd")){//购物车相关请求后 更新session
             Users user =(Users) request.getSession().getAttribute("user");
             request.getSession().setAttribute("cartCount", cartService.getCount(user.getId()));
         }

@@ -157,5 +157,13 @@ function reloadTotal(){
 		$(".m-price").text(data);
 	});
 }
+
+//刷新购物车总数
+function reloadCartNum() {
+	var cartnum = <%=request.getSession().getAttribute("cartCount")%>
+	console.log("cartnum=" + cartnum);
+	$(".cartnum").text(cartnum);
+}
+
 </script>
 </html>

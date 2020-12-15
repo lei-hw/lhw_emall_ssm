@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class TypeService {
 
-    @Autowired
+    @Autowired//自动获取
     private TypesDao typesDao;
 
     /**
@@ -30,4 +30,11 @@ public class TypeService {
     public Types get(int id){
         return typesDao.select(id);
     }
+
+    /**
+     * 添加
+     * @param type
+     * @return
+     */
+    public boolean add(Types type){ return typesDao.insert(type);}
 }

@@ -22,4 +22,7 @@ public interface TypesDao {
 
     @Update("update types set name=#{name},num=#{num} where id=#{id}")
     public boolean update(Types types);
+
+    @Update("delete from types where id=#{id}")
+    public boolean delete(int id);
 }
